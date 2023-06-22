@@ -78,7 +78,7 @@ function processPrefix(def, nextPrefixFunc) {
     let classname = def.classname
     let field = def.field
 
-    let scriptRoot = Root + '/' + Env.Path + '/' + classname + '/' + field
+    let scriptRoot = Root + '/' + classname + '/' + field
 
     console.log('Processing "' + classname + '" -> "' + field + '" -> "' + prefix )
     prefix = 'sys_idSTARTSWITH' + prefix
