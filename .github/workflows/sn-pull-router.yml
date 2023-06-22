@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: DevInstance
     steps:
-      - uses: ./.github/actions/sn-pull.yml@main
+      - uses: ./.github/workflows/sn-pull.yml@main
         with:
           env-name: DevInstance
 
