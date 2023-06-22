@@ -8,38 +8,27 @@ on:
     types: [ labeled ]
 
 jobs:
+  it-pull:
+    runs-on: ubuntu-latest
+    environment: IT
 
-  
-  build:
+  hr-pull:
+    runs-on: ubuntu-latest
+    environment: HR
+
+  lab-pull:
+    runs-on: ubuntu-latest
+    environment: Lab
+
+  idc-pull:
+    runs-on: ubuntu-latest
+    environment: IDC
+
+  dev-pull:
     runs-on: ubuntu-latest
     environment: DevInstance
-    strategy:
-      matrix:
-        node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm i
-    - run: node './setup.js'
-      env:
-        USER_ID: ${{ secrets.USER_ID }}
-        USER_PASS: ${{ secrets.USER_PASS }}
-    - run: node './main.js'
-      env:
-        USER_ID: ${{ secrets.USER_ID }}
-        USER_PASS: ${{ secrets.USER_PASS }}
-        
-    - name: Push
-      uses: s0/git-publish-subdir-action@develop
-      env:
-        REPO: self
-        BRANCH: DevInstance # The branch name where you want to push the assets
-        FOLDER: StaticCodeAnalysis # The directory where your assets are generated
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
-        MESSAGE: "Build: ({sha}) {msg}" # The commit message
+      - uses: ./.github/actions/sn-pull
+        with:
+          env-name: DevInstance
+
