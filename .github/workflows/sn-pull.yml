@@ -49,4 +49,4 @@ jobs:
           BRANCH: ${{ inputs.ENVIRONMENT }} # The branch name where you want to push the assets
           FOLDER: StaticCodeAnalysis # The directory where your assets are generated
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
-          MESSAGE: "Get Code: ({sha}) {inputs.ENVIRONMENT}" # The commit message
+          MESSAGE: "Get Code: ({sha}) ${{inputs.ENVIRONMENT}}" # The commit message
