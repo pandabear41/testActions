@@ -3,18 +3,14 @@ var FileWriter = require('./FileWriter.js')
 var XmlDownloader = require('./XmlDownloader.js')
 var PrefixIterator = require('./PrefixIterator.js')
 var Envs = require('./Envs.js')
-var Env = Envs.devInstance
+var Env = Envs.MainEnv
 
-console.log('what')
-console.log('test env ' + process.env.USER_ID)
+console.log("Running on Host: " + process.env.HOST);
 downloadJsons()
 
 function downloadJsons() {
-    console.log("hi")
     XmlDownloader.Download(Env, "sys_properties", "nameSTARTSWITHIntelCodeDownloadTools", function(records) {
-        console.log("hi no")
         for (let record of records) {
-            console.log(record)
             let value = record.value
             let filename = record.name + '.json'
 

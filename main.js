@@ -5,7 +5,7 @@ var FileWriter = require('./FileWriter.js')
 var XmlDownloader = require('./XmlDownloader.js')
 var PrefixIterator = require('./PrefixIterator.js')
 var Envs = require('./Envs.js')
-var Env = Envs.devInstance
+var Env = Envs.MainEnv
 
 // GRAB after downloading jsons
 var intelUsers = require('./IntelCodeDownloadTools.getUsers.json')
