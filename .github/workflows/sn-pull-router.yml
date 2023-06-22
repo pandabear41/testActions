@@ -8,23 +8,24 @@ on:
     types: [ labeled ]
 
 jobs:
-  it-pull:
-    runs-on: ubuntu-latest
-    environment: IT
+#   it-pull:
+#     runs-on: ubuntu-latest
+#     environment: IT
 
-  hr-pull:
-    runs-on: ubuntu-latest
-    environment: HR
+#   hr-pull:
+#     runs-on: ubuntu-latest
+#     environment: HR
 
-  lab-pull:
-    runs-on: ubuntu-latest
-    environment: Lab
+#   lab-pull:
+#     runs-on: ubuntu-latest
+#     environment: Lab
 
-  idc-pull:
-    runs-on: ubuntu-latest
-    environment: IDC
+#   idc-pull:
+#     runs-on: ubuntu-latest
+#     environment: IDC
 
   dev-pull:
+    if: ${{ github.event.label.name == 'DevInstance' }}
     runs-on: ubuntu-latest
     environment: DevInstance
     steps:
