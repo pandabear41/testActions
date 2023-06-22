@@ -8,6 +8,15 @@ on:
     types: [ labeled ]
 
 jobs:
+  do-it:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run a one-line script
+        run: echo Hello, world!
+
 # add new ones
 #   it-pull:
 #     runs-on: ubuntu-latest
@@ -30,7 +39,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: DevInstance
     steps:
-      - uses: actions/checkout@v2
       - uses: pandabear41/testActions/.github/workflows/sn-pull.yml@main
         with:
           env-name: DevInstance
