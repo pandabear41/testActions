@@ -25,4 +25,10 @@ jobs:
         cache: 'npm'
     - run: npm i
     - run: node './setup.js'
+      env:
+        USER_ID: ${{ secrets.USER_ID }}
+        USER_PASS: ${{ secrets.USER_PASS }}
     - run: node './main.js'
+      env:
+        USER_ID: ${{ secrets.USER_ID }}
+        USER_PASS: ${{ secrets.USER_PASS }}
