@@ -37,10 +37,6 @@ jobs:
           USER_ID: ${{ secrets.USER_ID }}
           USER_PASS: ${{ secrets.USER_PASS }}
           HOST: ${{ vars.HOST }}
-      - name: Close Issue
-        run: gh issue close --comment "Auto-closing issue" "${{github.event.issue.number}}"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: node './main.js'
         env:
           USER_ID: ${{ secrets.USER_ID }}
@@ -53,4 +49,8 @@ jobs:
           BRANCH: ${{ inputs.ENVIRONMENT }} # The branch name where you want to push the assets
           FOLDER: StaticCodeAnalysis # The directory where your assets are generated
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
-          MESSAGE: "Get Code: ({sha}) ${{inputs.ENVIRONMENT}}" # The commit message
+          MESSAGE: "Get Code: ({sha}) ${{inputs.ENVIRONMENT}} ${{github.event.issue.number}}" # The commit message
+      - name: Close Issue
+        run: gh issue close --comment "Code pull completed, auto-closing issue" "${{github.event.issue.number}}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
