@@ -39,4 +39,7 @@ jobs:
     uses: ./.github/workflows/sn-pull.yml
     with:
       ENVIRONMENT: DevInstance
+    secrets:
+      USER_ID: ${{ secrets.USER_ID }}
+      USER_PASS: ${{ secrets.USER_PASS }}
 
