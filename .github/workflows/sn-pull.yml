@@ -13,9 +13,9 @@ on:
         type: string
     secrets:
       USER_ID:
-        required: false
+        required: true
       USER_PASS:
-        required: false
+        required: true
 jobs:
   build:
     runs-on: ubuntu-latest
