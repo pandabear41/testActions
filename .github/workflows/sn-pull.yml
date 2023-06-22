@@ -42,7 +42,7 @@ jobs:
           USER_ID: ${{ secrets.USER_ID }}
           USER_PASS: ${{ secrets.USER_PASS }}
           HOST: ${{ vars.HOST }}
-      - name: Push
+      - name: Push code to branch
         uses: s0/git-publish-subdir-action@develop
         env:
           REPO: self
