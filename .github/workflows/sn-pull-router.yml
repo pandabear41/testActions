@@ -8,6 +8,11 @@ on:
     types: [ labeled ]
 
 jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
 #   it-pull:
 #     runs-on: ubuntu-latest
 #     environment: IT
