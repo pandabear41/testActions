@@ -36,12 +36,12 @@ jobs:
         env:
           USER_ID: ${{ secrets.USER_ID }}
           USER_PASS: ${{ secrets.USER_PASS }}
-          HOST: ${{ env.$HOST }}
+          HOST: ${{ env.HOST }}
       - run: node './main.js'
         env:
           USER_ID: ${{ secrets.USER_ID }}
           USER_PASS: ${{ secrets.USER_PASS }}
-          HOST: ${{ env.$HOST }}
+          HOST: ${{ env.HOST }}
       - name: Push
         uses: s0/git-publish-subdir-action@develop
         env:
