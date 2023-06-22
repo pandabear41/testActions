@@ -8,7 +8,7 @@ on:
     types: [ labeled ]
 
 jobs:
-  do-it:
+  setup:
     runs-on: ubuntu-latest
 
     steps:
@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: DevInstance
     steps:
-      - uses: pandabear41/testActions/.github/workflows/sn-pull.yml@main
+      - uses: pandabear41/testActions/.github/actions/sn-pull.yml@main
         with:
           env-name: DevInstance
 
