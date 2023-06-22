@@ -7,10 +7,6 @@ var PrefixIterator = require('./PrefixIterator.js')
 var Envs = require('./Envs.js')
 var Env = Envs.devInstance
 
-downloadJsons()
-
-
-
 // GRAB after downloading jsons
 var intelUsers = require('./IntelCodeDownloadTools.getUsers.json')
 var ScriptClasses = require('./IntelCodeDownloadTools.getClasses.json')
@@ -47,22 +43,6 @@ var thread_count = 0
 var NextClassDef = ScriptClassIterator()
 processClassDef(NextClassDef())
 
-
-function downloadJsons() {
-    console.log("hi")
-    XmlDownloader.Download(Env, "sys_properties", "nameSTARTSWITHIntelCodeDownloadTools", function(records) {
-        console.log("hi no")
-        for (let record of records) {
-            console.log(record)
-            let value = record.value
-            let filename = record.name + '.json'
-
-            FileWriter.Write('./', filename, value, function() {
-                console.log('wrote file: ' + filename)
-            })
-        }
-    })
-}
 
 function processClassDef(def) {
     if (!def) return
