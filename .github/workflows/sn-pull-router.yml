@@ -36,10 +36,7 @@ jobs:
 
   dev-pull:
     if: ${{ github.event.label.name == 'DevInstance' }}
-    runs-on: ubuntu-latest
-    environment: DevInstance
-    steps:
-      - uses: pandabear41/testActions/.github/actions/sn-pull.yml@main
-        with:
-          env-name: DevInstance
+    uses: ./.github/actions/sn-pull.yml@main
+    with:
+      env-name: DevInstance
 
