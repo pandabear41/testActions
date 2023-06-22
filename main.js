@@ -54,7 +54,7 @@ function processClassDef(def) {
 
     let nextPrefixFunc = PrefixIterator.Iterator()
 
-    console.log('Processing "' + def.classname + '" -> "' + def.field )
+    console.log('Processing "' + def.classname + '" -> "' + def.field + '"' )
 
     processPrefix(def, nextPrefixFunc)
 }

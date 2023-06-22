@@ -48,6 +48,11 @@ function Cache() {
     }
 }
 
+// ADD OAUTH IF NEEDED
+// exports.OauthLogin = function(env, cb) {
+
+// }
+
 exports.Download = function(env, table, query, cb) {
 
     //let query = 'sys_idSTARTSWITH' + id_prefix
