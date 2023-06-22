@@ -8,13 +8,18 @@ name: Pull Template
 on:
   workflow_call:
     inputs:
-       env-name:
+       ENVIRONMENT:
         required: true
         type: string
+    secrets:
+      USER_ID:
+        required: true
+      USER_PASS:
+        required: true
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: ${{ inputs.env-name }}
+    environment: ${{ inputs.ENVIRONMENT }}
     strategy:
       matrix:
         node-version: [18.x]
