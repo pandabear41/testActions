@@ -38,5 +38,5 @@ jobs:
     if: ${{ github.event.label.name == 'DevInstance' }}
     uses: ./.github/workflows/sn-pull.yml
     with:
-      env-name: DevInstance
+      ENVIRONMENT: DevInstance
 
