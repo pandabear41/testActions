@@ -73,14 +73,14 @@ function processPrefix(def, nextPrefixFunc) {
     }
 
     thread_count++    
-    console.log('Running threads = ' + thread_count)
+    //console.log('Running threads = ' + thread_count)
     
     let classname = def.classname
     let field = def.field
 
     let scriptRoot = Root + '/' + classname + '/' + field
 
-    console.log('Processing "' + classname + '" -> "' + field + '" -> "' + prefix )
+    //console.log('Processing "' + classname + '" -> "' + field + '" -> "' + prefix )
     prefix = 'sys_idSTARTSWITH' + prefix
 
     XmlDownloader.Download(Env, classname, prefix, function(records) {
