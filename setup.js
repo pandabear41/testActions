@@ -6,6 +6,7 @@ var Envs = require('./Envs.js')
 var Env = Envs.devInstance
 
 console.log('what')
+console.log('test env ' + process.env.USER_ID)
 downloadJsons()
 
 function downloadJsons() {
