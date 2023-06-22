@@ -8,11 +8,7 @@ on:
     types: [ labeled ]
 
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      
+
 #   it-pull:
 #     runs-on: ubuntu-latest
 #     environment: IT
@@ -34,6 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: DevInstance
     steps:
+      - uses: actions/checkout@v2
       - uses: ./.github/workflows/sn-pull.yml@main
         with:
           env-name: DevInstance
