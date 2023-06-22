@@ -37,6 +37,10 @@ jobs:
           USER_ID: ${{ secrets.USER_ID }}
           USER_PASS: ${{ secrets.USER_PASS }}
           HOST: ${{ vars.HOST }}
+      - name: Close Issue
+        run: gh issue close --comment "Auto-closing issue" "${{github.event.issue.number}}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: node './main.js'
         env:
           USER_ID: ${{ secrets.USER_ID }}
