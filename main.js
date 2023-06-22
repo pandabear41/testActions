@@ -37,7 +37,12 @@ var ScriptClassIterator = function() {
 }
 
 var Root = './StaticCodeAnalysis'
-fs.mkdir(Root)
+fs.mkdir(Root, (err) => {
+    if (err) {
+        return console.error(err);
+    }
+    console.log('Directory created successfully!');
+});
 var MaxThreads = 3
 var thread_count = 0
 var NextClassDef = ScriptClassIterator()
