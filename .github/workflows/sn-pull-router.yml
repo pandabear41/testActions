@@ -31,7 +31,7 @@ jobs:
     environment: DevInstance
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/workflows/sn-pull.yml@main
+      - uses: pandabear41/testActions/.github/workflows/sn-pull.yml@main
         with:
           env-name: DevInstance
 
